@@ -70,15 +70,11 @@ const contactSchema = new mongoose.Schema({
 
 const ContactMessage = mongoose.model('ContactMessage', contactSchema);
 
-// Email transporter setup with fallback
+// Email transporter setup
 let transporter = null;
 
-// Try to setup Gmail if configured, otherwise use Ethereal for testing
-if (process.env.EMAIL_USER && process.env.EMAIL_PASS && 
-    process.env.EMAIL_USER !== 'your-email@gmail.com' && 
-    process.env.EMAIL_PASS !== 'your-app-password' &&
-    process.env.EMAIL_PASS !== 'YOUR_GMAIL_APP_PASSWORD_HERE') {
-    
+// Setup email transporter if environment variables are available
+if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
     transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -86,22 +82,9 @@ if (process.env.EMAIL_USER && process.env.EMAIL_PASS &&
             pass: process.env.EMAIL_PASS
         }
     });
-    
     console.log('✅ Gmail configured for:', process.env.EMAIL_USER);
-    
 } else {
-    // Use Ethereal for testing (no real email setup required)
-    transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false,
-        auth: {
-            user: 'test@ethereal.email',
-            pass: 'test123456'
-        }
-    });
-    
-    console.log('📧 Using Ethereal test service (no real Gmail setup)');
+    console.log('📧 Email not configured - contact form will work but no emails will be sent');
 }
 
 // Test email configuration on startup
