@@ -93,7 +93,13 @@ transporter.verify((error, success) => {
     }
 });
 
-// Contact Form Endpoint
+// Serve static files first
+app.use(express.static('.'));
+
+// Apply rate limiting to contact endpoint
+app.use('/api/contact', limiter);
+
+// API routes
 app.post('/api/contact', async (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
@@ -138,7 +144,7 @@ app.post('/api/contact', async (req, res) => {
                     `
                 };
 
-                // Send confirmation email to the sender
+                // Send confirmation email to sender
                 const confirmationMailOptions = {
                     from: process.env.EMAIL_USER,
                     to: email,
@@ -181,7 +187,7 @@ app.post('/api/contact', async (req, res) => {
                 console.error('❌ Email sending failed:', emailError.message);
                 console.error('❌ Full error:', emailError);
                 
-                // Still return success to user but log the error
+                // Still return success to user but log error
                 return res.status(200).json({ 
                     message: '✅ Message received! I\'ll get back to you soon.' 
                 });
