@@ -34,7 +34,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio
     useUnifiedTopology: true,
 })
 .then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('MongoDB connection error:', err));
+.catch(err => {
+    console.log('MongoDB connection error:', err.message);
+    console.log('Server will continue without database (messages will be logged only)');
+});
 
 // Contact Message Schema
 const contactSchema = new mongoose.Schema({
