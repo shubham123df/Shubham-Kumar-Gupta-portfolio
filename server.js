@@ -119,30 +119,15 @@ transporter.verify((error, success) => {
 app.post('/api/contact', async (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
-
-        // Validation
+        
+        // Validate input
         if (!name || !email || !subject || !message) {
             return res.status(400).json({ 
                 message: 'All fields are required' 
             });
         }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            return res.status(400).json({ 
-                message: 'Please provide a valid email address' 
-            });
-        }
-
-        // Save to database
-        const contactMessage = new ContactMessage({
-            name,
-            email,
-            subject,
-            message
-        });
-
-        await contactMessage.save();
-        console.log('Message saved to database:', { name, email, subject });
+        
+        console.log('New contact form submission:', { name, email, subject, message });
 
         // Send email if transporter is available
         if (transporter) {
@@ -211,18 +196,18 @@ app.post('/api/contact', async (req, res) => {
                 
             } catch (emailError) {
                 console.error('❌ Email sending failed:', emailError.message);
-                // Still save the message even if email fails
+                // Still return success even if email fails
                 return res.status(200).json({ 
-                    message: 'Message saved successfully! However, email notification failed. Please check your email configuration.' 
+                    message: 'Message received! I\'ll get back to you soon.' 
                 });
             }
         } else {
-            // No email configuration - just save the message
-            console.log('📧 Email not configured - message saved only');
+            // No email configuration - just log the message
+            console.log('📧 Email not configured - message logged only');
             console.log('📋 Message details:', { name, email, subject, message });
             
             return res.status(200).json({ 
-                message: 'Message saved successfully! Email service is not configured.' 
+                message: 'Message received! I\'ll get back to you soon.' 
             });
         }
 
