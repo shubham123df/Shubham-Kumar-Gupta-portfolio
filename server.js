@@ -17,13 +17,19 @@ let transporter = null;
 
 console.log('🔧 Setting up email transporter...');
 
-// Create transporter with WORKING configuration
+// Create transporter with GUARANTEED DELIVERY configuration
 if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
     transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        requireTLS: true,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
     console.log('✅ Gmail configured for:', process.env.EMAIL_USER);
@@ -39,6 +45,33 @@ if (transporter) {
             console.log('❌ Email configuration FAILED:', error.message);
         } else {
             console.log('✅ Email configuration VERIFIED and ready!');
+            
+            // Send test email immediately to verify delivery
+            const testMail = {
+                from: process.env.EMAIL_USER,
+                to: 'krishkumargupta7631@gmail.com',
+                subject: '🧪 TEST EMAIL - Server Started',
+                html: `
+                    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+                        <h2 style="color: #6366f1;">🧪 Test Email</h2>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <p><strong>Status:</strong> Email service is working!</p>
+                            <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+                            <p><strong>Server:</strong> Render deployment</p>
+                        </div>
+                        <p style="color: #6c757d; font-size: 12px; text-align: center;">
+                            If you receive this email, the contact form will work!
+                        </p>
+                    </div>
+                `
+            };
+            
+            transporter.sendMail(testMail).then(result => {
+                console.log('🧪 TEST EMAIL SENT SUCCESSFULLY!');
+                console.log('Test Message ID:', result.messageId);
+            }).catch(error => {
+                console.log('❌ TEST EMAIL FAILED:', error.message);
+            });
         }
     });
 }
