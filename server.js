@@ -66,9 +66,15 @@ let transporter = null;
 if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
     transporter = nodemailer.createTransport({
         service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
     console.log('✅ Gmail configured for:', process.env.EMAIL_USER);
@@ -99,20 +105,22 @@ app.post('/api/contact', async (req, res) => {
             });
         }
         
-        console.log('New contact form submission:', { name, email, subject, message });
+        console.log('📧 New contact form submission:', { name, email, subject, message });
 
         // Send email if transporter is available
         if (transporter) {
             try {
-                // Send email
+                console.log('🔄 Sending emails...');
+                
+                // Send email to you
                 const mailOptions = {
-                    from: process.env.EMAIL_USER || 'test@ethereal.email',
+                    from: process.env.EMAIL_USER,
                     to: 'krishkumargupta7631@gmail.com',
-                    subject: `New Contact Form Message: ${subject}`,
+                    subject: `📧 New Contact Form Message: ${subject}`,
                     html: `
                         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                             <h2 style="color: #6366f1; border-bottom: 2px solid #8b5cf6; padding-bottom: 10px;">
-                                New Contact Form Submission
+                                📧 New Contact Form Submission
                             </h2>
                             <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
                                 <p><strong>Name:</strong> ${name}</p>
@@ -132,12 +140,12 @@ app.post('/api/contact', async (req, res) => {
 
                 // Send confirmation email to the sender
                 const confirmationMailOptions = {
-                    from: process.env.EMAIL_USER || 'test@ethereal.email',
+                    from: process.env.EMAIL_USER,
                     to: email,
-                    subject: 'Thank you for contacting Shubham Kumar Gupta',
+                    subject: '✅ Thank you for contacting Shubham Kumar Gupta',
                     html: `
                         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                            <h2 style="color: #6366f1;">Thank You for Reaching Out!</h2>
+                            <h2 style="color: #6366f1;">✅ Thank You for Reaching Out!</h2>
                             <p>Dear ${name},</p>
                             <p>Thank you for contacting me through my portfolio website. I have received your message and will get back to you as soon as possible.</p>
                             <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -158,19 +166,24 @@ app.post('/api/contact', async (req, res) => {
                     `
                 };
 
+                // Send both emails
                 await transporter.sendMail(mailOptions);
+                console.log('✅ Email sent to krishkumargupta7631@gmail.com');
+                
                 await transporter.sendMail(confirmationMailOptions);
-                console.log('✅ Emails sent successfully');
+                console.log('✅ Confirmation email sent to:', email);
                 
                 return res.status(200).json({ 
-                    message: 'Message sent successfully! I\'ll get back to you soon.' 
+                    message: '✅ Message sent successfully! I\'ll get back to you soon.' 
                 });
                 
             } catch (emailError) {
                 console.error('❌ Email sending failed:', emailError.message);
-                // Still return success even if email fails
+                console.error('❌ Full error:', emailError);
+                
+                // Still return success to user but log the error
                 return res.status(200).json({ 
-                    message: 'Message received! I\'ll get back to you soon.' 
+                    message: '✅ Message received! I\'ll get back to you soon.' 
                 });
             }
         } else {
@@ -179,14 +192,14 @@ app.post('/api/contact', async (req, res) => {
             console.log('📋 Message details:', { name, email, subject, message });
             
             return res.status(200).json({ 
-                message: 'Message received! I\'ll get back to you soon.' 
+                message: '✅ Message received! I\'ll get back to you soon.' 
             });
         }
 
     } catch (error) {
-        console.error('Error in contact form submission:', error);
+        console.error('❌ Error in contact form submission:', error);
         res.status(500).json({ 
-            message: 'Internal server error. Please try again later.' 
+            message: '❌ Internal server error. Please try again later.' 
         });
     }
 });
