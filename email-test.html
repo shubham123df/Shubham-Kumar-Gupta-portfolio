@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Configuration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>📧 Email Configuration Test</h1>
+    
+    <div id="status" class="info">
+        <p>Checking email configuration...</p>
+    </div>
+    
+    <button onclick="testEmail()">Test Email Configuration</button>
+    <button onclick="checkConfig()">Check .env File</button>
+    
+    <div id="result"></div>
+    
+    <script>
+        async function testEmail() {
+            const statusDiv = document.getElementById('status');
+            const resultDiv = document.getElementById('result');
+            
+            statusDiv.className = 'info';
+            statusDiv.innerHTML = '<p>🔄 Testing email configuration...</p>';
+            resultDiv.innerHTML = '';
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        subject: 'Email Configuration Test',
+                        message: 'This is a test to verify email sending is working properly.'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (response.message.includes('successfully')) {
+                    statusDiv.className = 'success';
+                    statusDiv.innerHTML = '<p>✅ Email configuration is working!</p>';
+                    resultDiv.innerHTML = '<p><strong>Result:</strong> ' + result.message + '</p>';
+                } else {
+                    statusDiv.className = 'error';
+                    statusDiv.innerHTML = '<p>❌ Email configuration has issues</p>';
+                    resultDiv.innerHTML = '<p><strong>Error:</strong> ' + result.message + '</p>';
+                }
+                
+            } catch (error) {
+                statusDiv.className = 'error';
+                statusDiv.innerHTML = '<p>❌ Failed to test email</p>';
+                resultDiv.innerHTML = '<p><strong>Error:</strong> ' + error.message + '</p>';
+            }
+        }
+        
+        async function checkConfig() {
+            const statusDiv = document.getElementById('status');
+            const resultDiv = document.getElementById('result');
+            
+            statusDiv.className = 'info';
+            statusDiv.innerHTML = '<p>🔍 Checking .env configuration...</p>';
+            resultDiv.innerHTML = '';
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: 'Config Check',
+                        email: 'config@example.com',
+                        subject: 'Configuration Check',
+                        message: 'Checking if email is properly configured...'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                statusDiv.className = result.message.includes('configured') ? 'success' : 'error';
+                statusDiv.innerHTML = '<p>' + result.message + '</p>';
+                resultDiv.innerHTML = '<p><strong>Status:</strong> ' + result.message + '</p>';
+                
+            } catch (error) {
+                statusDiv.className = 'error';
+                statusDiv.innerHTML = '<p>❌ Configuration check failed</p>';
+                resultDiv.innerHTML = '<p><strong>Error:</strong> ' + error.message + '</p>';
+            }
+        }
+        
+        // Auto-test on page load
+        window.onload = function() {
+            setTimeout(checkConfig, 1000);
+        };
+    </script>
+</body>
+</html>

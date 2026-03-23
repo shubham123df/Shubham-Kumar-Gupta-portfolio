@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shubham Kumar Gupta | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="scroll-progress"></div>
+
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="nav-logo">Shubham Kumar Gupta</div>
+    <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon" style="display: none;">🌙</span>
+    </button>
+</nav>
+
+<!-- ===== BACKGROUND GLOW EFFECT ===== -->
+<div class="background-glow"></div>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero section">
+    <div class="parallax-bg"></div>
+
+
+    <div class="hero-content">
+
+        <h1 class="big-text">
+            Hi, I'm <span class="gradient-text">Shubham Kumar Gupta</span>
+        </h1>
+
+        <h2 class="subtitle">
+            <span id="typing"></span>
+        </h2>
+
+        <p class="hero-description">
+            Computer Science Engineering student passionate about building
+            scalable software systems, AI-driven solutions, and solving
+            complex real-world problems with efficient code.
+        </p>
+
+        <a href="#about" class="btn">Explore My Work ↓</a>
+        <a href="24BCS10914_Shubham_Resume.pdf" 
+   target="_blank" 
+   class="btn">
+   View Resume
+</a>
+
+<a href="24BCS10914_Shubham_Resume.pdf" 
+   download 
+   class="btn secondary-btn">
+   Download Resume
+</a>
+
+
+        <!-- Hero Stats -->
+        <div class="hero-stats">
+            <div>
+                <h3>8.34</h3>
+                <p>CGPA</p>
+            </div>
+            <div>
+                <h3>200+</h3>
+                <p>DSA Problems</p>
+            </div>
+            <div>
+                <h3>3+</h3>
+                <p>Hackathons</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="shubham.png" alt="Shubham Photo">
+    </div>
+
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" class="section reveal">
+
+    <h2 class="section-title">About Me</h2>
+    <div class="divider"></div>
+
+    <div class="about-container">
+
+        <div class="about-left">
+            <h3>Who I Am</h3>
+            <p>
+                I am Shubham Kumar Gupta, a Computer Science Engineering student 
+                at Chandigarh University with a CGPA of 8.34. I am passionate about 
+                full-stack development, artificial intelligence, and scalable 
+                system design.
+            </p>
+
+            <p>
+                I continuously improve my problem-solving skills through 
+                competitive programming platforms like LeetCode, HackerRank, 
+                and GeeksforGeeks, and by participating in hackathons.
+            </p>
+        </div>
+
+        <div class="about-right">
+            <h3>What I Focus On</h3>
+            <ul class="focus-list">
+                <li>✔ Data Structures & Algorithms</li>
+                <li>✔ Full Stack Web Development</li>
+                <li>✔ Artificial Intelligence & Machine Learning</li>
+                <li>✔ Software Architecture & Optimization</li>
+                <li>✔ Clean, Maintainable Code</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== SKILLS SECTION ===== -->
+<section id="skills" class="section reveal">
+
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="divider"></div>
+
+    <div class="skills-grid">
+        <div class="skill-card">C</div>
+        <div class="skill-card">C++</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">Java</div>
+        <div class="skill-card">SQL</div>
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">JavaScript</div>
+    </div>
+
+</section>
+
+<!-- ===== PROJECTS SECTION ===== -->
+<section id="projects" class="section reveal">
+
+    <h2 class="section-title">Projects</h2>
+    <div class="divider"></div>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Phishing Detection System</h3>
+                <div class="project-links">
+                    <a href="https://github.com/shubham123df/phishing-detection" target="_blank" class="project-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="project-link demo-link" onclick="alert('Demo coming soon!'); return false;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <p>
+                Developed a phishing website detection system using URL analysis
+                and machine learning techniques to improve cybersecurity awareness.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Flask</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Facial Expression Detection</h3>
+                <div class="project-links">
+                    <a href="https://github.com/shubham123df/facial-expression-detection" target="_blank" class="project-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.3.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="project-link demo-link" onclick="alert('Demo coming soon!'); return false;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <p>
+                Built an AI-based facial expression recognition system capable of
+                detecting emotions such as happy, sad, and surprised using computer vision.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">CNN</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3>E-Commerce Platform</h3>
+                <div class="project-links">
+                    <a href="https://github.com/shubham123df/ecommerce-platform" target="_blank" class="project-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="project-link demo-link" onclick="alert('Demo coming soon!'); return false;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <p>
+                Full-stack e-commerce platform with user authentication, payment integration,
+                and admin dashboard for managing products and orders.
+            </p>
+            <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Stripe</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== EXPERIENCE SECTION ===== -->
+<section id="experience" class="section reveal">
+
+    <h2 class="section-title">Experience & Education</h2>
+    <div class="divider"></div>
+
+    <div class="experience-container">
+        <div class="experience-column">
+            <h3>Professional Experience</h3>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h4>Data Science Intern</h4>
+                    <span class="experience-date">Apr 2024 - May 2024</span>
+                </div>
+                <h5>Intern Army</h5>
+                <ul class="experience-points">
+                    <li>Created interactive dashboards and data visualizations in Tableau, increasing insights clarity by 40%</li>
+                    <li>Created and presented data-driven stories for stakeholders, enhancing decision-making processes by 30%</li>
+                    <li>Applied data cleaning techniques and manipulated data sets improving accuracy and reliability by 50%</li>
+                </ul>
+                <div class="experience-skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Data Analysis</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h4>Full Stack Developer</h4>
+                    <span class="experience-date">2023 - Present</span>
+                </div>
+                <h5>Freelance Projects</h5>
+                <ul class="experience-points">
+                    <li>Developed responsive web applications using modern JavaScript frameworks</li>
+                    <li>Implemented RESTful APIs and database solutions for various client projects</li>
+                    <li>Collaborated with clients to deliver scalable and maintainable code solutions</li>
+                </ul>
+                <div class="experience-skills">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-column">
+            <h3>Education</h3>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h4>B.Tech in Computer Science Engineering</h4>
+                    <span class="experience-date">2022 - 2026</span>
+                </div>
+                <h5>Chandigarh University</h5>
+                <ul class="experience-points">
+                    <li>CGPA: 8.34/10</li>
+                    <li>Relevant Coursework: Data Structures, Algorithms, Database Management, Web Development</li>
+                    <li>Active member of coding clubs and hackathon teams</li>
+                </ul>
+                <div class="experience-skills">
+                    <span class="skill-tag">Algorithms</span>
+                    <span class="skill-tag">Database</span>
+                    <span class="skill-tag">Web Development</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h4>Higher Secondary Education</h4>
+                    <span class="experience-date">2020 - 2022</span>
+                </div>
+                <h5>Board of Intermediate Education</h5>
+                <ul class="experience-points">
+                    <li>Percentage: 92%</li>
+                    <li>Specialized in Mathematics, Physics, and Chemistry</li>
+                </ul>
+                <div class="experience-skills">
+                    <span class="skill-tag">Mathematics</span>
+                    <span class="skill-tag">Physics</span>
+                    <span class="skill-tag">Chemistry</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="section reveal">
+
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="divider"></div>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p>Feel free to reach out to me for any opportunities, collaborations, or just to say hello!</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>krishkumargupta7631@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/shubham-kumar-gupta-b760b8334/" target="_blank">linkedin.com/in/shubham-kumar-gupta-b760b8334</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Chandigarh, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/shubham123df" target="_blank" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://leetcode.com/u/ShubhamGu/" target="_blank" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+                    </svg>
+                    LeetCode
+                </a>
+                <a href="https://www.hackerrank.com/profile/24BCS10914" target="_blank" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.236 6.348l.043.051v2.461c0 .972-.546 1.446-1.012 1.446-.465 0-.988-.393-.988-1.446V6.781c0-.696-.563-1.259-1.259-1.259-.695 0-1.259.563-1.259 1.259v2.579c0 .972-.546 1.446-1.012 1.446-.465 0-.988-.393-.988-1.446V6.399c0-1.258 1.028-2.277 2.277-2.277 1.249 0 2.277 1.019 2.277 2.277l-.039-.051zm8.519-2.277c0-1.258-1.028-2.277-2.277-2.277-1.249 0-2.277 1.019-2.277 2.277v2.461c0 .972-.546 1.446-1.012 1.446-.465 0-.988-.393-.988-1.446V6.781c0-.696-.563-1.259-1.259-1.259-.695 0-1.259.563-1.259 1.259v2.579c0 .972-.546 1.446-1.012 1.446-.465 0-.988-.393-.988-1.446V6.399c0-1.258 1.028-2.277 2.277-2.277 1.249 0 2.277 1.019 2.277 2.277v2.461c0 .972-.546 1.446-1.012 1.446-.465 0-.988-.393-.988-1.446V6.781c0-.696-.563-1.259-1.259-1.259-.695 0-1.259.563-1.259 1.259v2.579c0 .972-.546 1.446-1.012 1.446-.465 0-.988-.393-.988-1.446V6.399c0-1.258 1.028-2.277 2.277-2.277z"/>
+                    </svg>
+                    HackerRank
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Send Me a Message</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loading" style="display: none;">Sending...</span>
+                </button>
+            </form>
+            
+            <div id="formMessage" class="form-message" style="display: none;"></div>
+        </div>
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+<div class="cursor-glow"></div>
+
+</body>
+</html>
