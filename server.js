@@ -28,16 +28,7 @@ app.use(express.static('.')); // Serve static files from the current directory
 // Apply rate limiting to contact endpoint
 app.use('/api/contact', limiter);
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => {
-    console.log('MongoDB connection error:', err.message);
-    console.log('Server will continue without database (messages will be logged only)');
-});
+console.log('📧 MongoDB disabled for deployment - using email only');
 
 // Contact Message Schema
 const contactSchema = new mongoose.Schema({
@@ -67,8 +58,6 @@ const contactSchema = new mongoose.Schema({
         default: Date.now
     }
 });
-
-const ContactMessage = mongoose.model('ContactMessage', contactSchema);
 
 // Email transporter setup
 let transporter = null;
