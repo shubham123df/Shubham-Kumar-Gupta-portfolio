@@ -91,7 +91,7 @@ ShubhamPortfolio/
    
    Open your browser and navigate to:
    ```
-   http://localhost:5000
+   https://shubham123df.github.io/Shubham-Kumar-Gupta-portfolio/
    ```
 
 ## 📧 Contact Form Functionality
